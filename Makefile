@@ -18,7 +18,7 @@ all: build
 
 
 build: ${OBJECTS}
-	${CPP_C} ${CPP_FLAGS} ${OBJECTS} -o ${EXECUTABLE}
+	${CPP_C} ${CPP_FLAGS} $< -o ${EXECUTABLE}
 
 %.o: %.cpp
 	${CPP_C} ${CPP_FLAGS} -c $< -o $@
@@ -27,7 +27,7 @@ main.o: main.cpp
 	${CPP_C} ${CPP_FLAGS} -DTYPES="${TYPES}" -DSIZES="${SIZES}" -c $< -o $@
 
 fluid: ${ADDITIONAL}/fluid.cpp
-	${CPP_C} ${CPP_FLAGS} ${ADDITIONAL}/fluid.cpp -o ${ADDITIONAL}/fluid
+	${CPP_C} ${CPP_FLAGS} $< -o ${ADDITIONAL}/fluid
 	${ADDITIONAL}/fluid
 
 clear:

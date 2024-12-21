@@ -60,18 +60,8 @@ public:
     template <std::integral U>
     BaseFixed(U val): v(static_cast<value_type>(val) << M) {}
 
-    BaseFixed(float val): v((static_cast<int64_t>(1) << M) * val)
-    {
-        // if you delete this it won`t work lol
-        std::ostringstream oss;
-        oss << v << '\n';
-    }
-    BaseFixed(double val): v((static_cast<int64_t>(1) << M) * val)
-    {
-        // if you delete this it won`t work lol
-        std::ostringstream oss;
-        oss << v << '\n';
-    }
+    BaseFixed(float val): v((static_cast<int64_t>(1) << M) * val) {}
+    BaseFixed(double val): v((static_cast<int64_t>(1) << M) * val) {}
 
     template <size_t N1, size_t M1, bool IsFast1>
     BaseFixed(const BaseFixed<N1, M1, IsFast1> &bf): BaseFixed(bf.to_double()) { }

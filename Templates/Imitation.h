@@ -91,9 +91,7 @@ private:
     Container<int> last_use;
     int UT = 0;
 
-    // За счёт улучшенного рандома программа ускоряется, не теряя корректности
-    random_device rd;
-    std::mt19937 engine{rd()};
+    std::mt19937 engine{1337};
     uniform_real_distribution<Double> dist{0, 1};
 
 private:
